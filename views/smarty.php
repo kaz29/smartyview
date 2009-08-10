@@ -210,4 +210,10 @@ class SmartyView extends View {
 		}
 		return $out;
 	}
+	
+  function aa()
+  {
+      $args = func_get_args();
+      return call_user_func_array('aa', $args);
+  }
 }
