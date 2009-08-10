@@ -6,8 +6,8 @@ class MypagesController extends AppController {
 	var $layout  = 'mylayout';
 	var $view    = 'Smarty.Smarty';
 	
-	function index(){
-	  
+	function index()
+	{
 	  if ( is_writable(TMP.'smarty'.DS.'templates_c') ) {
       $this->set('smarty_compile_dir_is_writable', true) ;
     }
@@ -15,7 +15,6 @@ class MypagesController extends AppController {
 	  if ( is_writable(TMP.'smarty'.DS.'cache') ) {
       $this->set('smarty_cache_dir_is_writable', true) ;
     }
-		$this->set('smarty_content', 'Testing SmartyView');
 	}
 }
 ?>
