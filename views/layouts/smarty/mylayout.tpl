@@ -13,7 +13,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>{$html->link('SmartyView plugin', '#')}</h1>
+			<h1>{$html->link('SmartyView plugin', 'http://blog.ecworks.jp/smartyview')}</h1>
 		</div>
 		<div id="content">
 			{$session->flash()}
