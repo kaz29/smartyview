@@ -66,6 +66,30 @@ class SmartyView extends View {
 		$this->smarty->compile_dir = TMP.'smarty'.DS.'templates_c'.DS;
 		$this->smarty->cache_dir = TMP.'smarty'.DS.'cache'.DS;
 		$this->smarty->error_reporting = 'E_ALL & ~E_NOTICE';
+
+    if ( !is_null(Configure::read( 'Smarty.subDir' )) ) {
+		  $this->subDir = Configure::read( 'Smarty.subDir' );
+		  if ( empty($this->subDir) ) 
+		    $this->subDir = null ;
+    }
+    
+    if ( !is_null(Configure::read( 'Smarty.ext' )) ) {
+		  $this->ext = Configure::read( 'Smarty.ext' );
+    }
+    
+    if ( !is_null(Configure::read( 'Smarty.layoutPath' )) ) {
+		  $this->layoutPath = Configure::read( 'Smarty.layoutPath' );
+		  if ( empty($this->layoutPath) ) 
+		    $this->layoutPath = null ;
+    }	
+    
+    if ( !is_null(Configure::read( 'Smarty.left_delimiter' )) ) {
+		  $this->left_delimiter = Configure::read( 'Smarty.left_delimiter' );
+    }
+    
+    if ( !is_null(Configure::read( 'Smarty.right_delimiter' )) ) {
+		  $this->right_delimiter = Configure::read( 'Smarty.right_delimiter' );
+    }
 	}
 
 /**
