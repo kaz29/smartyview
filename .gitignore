@@ -1,0 +1,7 @@
+*~
+.DS_Store
+Thumbs.db
+gmon.out
+.buildpath
+*.project
+*.settings

@@ -1,0 +1,59 @@
+***************************************************************************
+	CakePHP1.2＋Smarty用Viewプラグイン「SmartyView」インストール方法
+	Copyright 2008-2009 ECWorks ( http://www.ecworks.jp/ )
+	
+  kaz_29<cyo@mac.com>
+  http://d.hatena.ne.jp/kaz_29/
+***************************************************************************
+
+0. CakePHP1.2.x をダウンロードし、ブラウザからアクセス出来る様設定します。
+1. APP/plugins ディレクトリにsmarty pluginをコピーします。
+    gitで取得する場合は以下で取得出来ます。
+    
+    cd APP/plugins/
+    git clone git@github.com:kaz29/smartyview.git smarty
+    
+2. コンパイルディレクトリを作成します。
+    mkdir -p APP/tmp/smarty/templates_c
+    chmod go+w APP/tmp/smarty/templates_c
+3. キャッシュディレクトリを作成します。
+    mkdir -p APP/tmp/smarty/cache
+    chmod go+w APP/tmp/smarty/cache
+4. http://example.com/smarty/mypages/ にアクセスしオールグリーンで表示されている事を確認します。
+
+smarty viewを使用するコントローラは、plugins/smarty/controllers/mypages_controller.phpを
+参考にしてください。
+
+smarty view用のテンプレートを参考にしてください。
+
+  smartyでは、配列を扱う事が出来ないので、smarty view内に aaのラッパーメソッドを作成してあります。
+  APP/plugins/smarty/views/layouts/smarty/mylayout.tpl 内で数カ所使用していますので参考にしてみてください。
+  
+  使用例
+	{$html->link($html->image('cake.power.gif'),'http://www.cakephp.org/', $view->aa('target','_blank'), null, false)}
+
+  参考URL
+  http://www.mono-space.net/blog/php/e070329_smarty.htm
+
+smarty viewのサブディレクトリについて
+
+  smaty viewでは、smarty viewテンプレートの配置先は views/hoge/smarty/ の様にsmartyというサブディレクトリが必要ですが、
+  設定でサブディレクトリ無しでも動作する様に微修正をしています。
+  
+  core.php辺りで以下の様に設定するとサブディレクトリ無しで動作します。
+
+    Configure::write('Smarty.subDir', '');
+    Configure::write('Smarty.layoutPath', '');
+
+  同様にデリミタも設定で変更出来る様にしてあります。
+  
+    Configure::write('Smarty.left_delimiter', '{{');
+    Configure::write('Smarty.right_delimiter', '}}');
+
+**************************************************
+　　ECWorks(H.N MASA-P)
+　　http://www.ecworks.jp/
+  
+  kaz_29<cyo@mac.com>
+  http://d.hatena.ne.jp/kaz_29/
+**************************************************
