@@ -18,6 +18,11 @@
 <p>
 	<a href="http://blog.ecworks.jp/smartyview/">SmartyView official page.</a>
 </p>
+<div>
 <p>
   Copyright 2008-2009, {$html->link('ECWorks', 'http://www.ecworks.jp/')}.
 </p>
+<p>
+  {$html->link('kaz_29', 'http://d.hatena.ne.jp/kaz_29/', $view->aa('target','_blank'))}
+</p>
+</div>
